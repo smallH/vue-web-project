@@ -22,7 +22,7 @@
 				})
 			}
 		},
-		// 入参(对象类型不可设置默认值)
+		// 入参
 		props: {
 			tObject: {
 				type: Object,
@@ -55,18 +55,18 @@
 		},
 		// 创建后
 		created() {
-			console.log("1.实例创建完成，但Dom还不存在");
+			console.log("1.created：实例创建完成，但Dom还不存在");
 			this.$nextTick(function() {
-				console.log('4.在修改数据之后立即使用$nextTick，可获取更新后的真实Dom');
+				console.log('4.$nextTick：在修改数据之后立即使用$nextTick，可获取更新后的真实Dom');
 			});
 		},
 		// 挂载前
 		beforeMount() {
-			console.log("2.虚拟Dom创建完成，但未挂载到页面上");
+			console.log("2.beforeMount：虚拟Dom创建完成，但未挂载到页面上");
 		},
 		// 挂载后
 		mounted() {
-			console.log('3.挂载到真实Dom上，并数据渲染完成');
+			console.log('3.mounted：挂载到真实Dom上，并数据渲染完成');
 		},
 		// 组件引入
 		components: {},
