@@ -1,21 +1,21 @@
 <template>
 	<div id="core">
 		<div class="header">
-			<div class="header-title">vue-web框架</div>
+			<div class="header-title">welcome to vue-web !</div>
 		</div>
 		<div class="content">
 			<div class="tab">
 				<div class="tabitem">
-					<div class="tabitem-title">框架介绍</div>
+					<div class="tabitem-title">-框架介绍-</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">
-								<router-link :to="{path:'/pages/base/initialization'}" class="rlink">
+								<router-link :to="{path:'/pages/base/introduction'}" class="rlink">
 									概述
 								</router-link>
 							</li>
 							<li class="tabitem-li">
-								<router-link :to="{path:'/pages/base/introduction'}" class="rlink">
+								<router-link :to="{path:'/pages/base/initialization'}" class="rlink">
 									初始化
 								</router-link>
 							</li>
@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="tabitem">
-					<div class="tabitem-title">基本功能</div>
+					<div class="tabitem-title">-基本功能-</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">路由传参</li>
@@ -32,7 +32,7 @@
 					</div>
 				</div>
 				<div class="tabitem">
-					<div class="tabitem-title">公用组件</div>
+					<div class="tabitem-title">-公用组件-</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">下拉列</li>
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 				<div class="tabitem">
-					<div class="tabitem-title">其它资料</div>
+					<div class="tabitem-title">-其它资料-</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">作者信息</li>
@@ -73,7 +73,7 @@
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
 	.header {
-		background-color: black;
+		background-color: #009688;
 		height: 50px;
 		width: 100%;
 		.header-title {
@@ -95,16 +95,16 @@
 	}
 	
 	.tab {
+		overflow-y: auto;
 		height: 100%;
 		width: 200px;
 		border-right: solid 1px black;
-		background-color: #E0E0E0;
+		background-color: #00746a;
 		.tabitem {
 			padding: 20px;
 			.tabitem-title {
 				padding: 5px;
-				background-color: black;
-				color: white;
+				color: #c5c5c5;
 				padding-left: 20px;
 				font-size: 20px;
 				border-radius: 5px;
@@ -116,18 +116,21 @@
 					cursor: pointer;
 					margin-top: 10px;
 					width: fit-content;
+					color: white;
 				}
 			}
 		}
 	}
 	
 	.view {
+		overflow-y: auto;
 		flex: 1;
 		height: 100%;
+		background-color: #fff;
 	}
 	
 	.rlink {
 		text-decoration: none;
-		color: black;
+		color: white;
 	}
 </style>
