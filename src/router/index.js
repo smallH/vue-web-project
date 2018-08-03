@@ -45,6 +45,38 @@ export default new VueRouter({
 				meta: {
 					needToken: true
 				}
+			},
+			{
+				path: '/pages/action/param',
+				component: _import('pages/action/param'),
+				name: '页面明文传参',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/param/getparam',
+				component: _import('pages/action/param/getparam'),
+				name: '页面明文传参',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/jsonserver',
+				component: _import('pages/action/jsonserver'),
+				name: 'json-server',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/proxy',
+				component: _import('pages/action/proxy'),
+				name: '服务代理',
+				meta: {
+					needToken: true
+				}
 			}
 		]
 	}]

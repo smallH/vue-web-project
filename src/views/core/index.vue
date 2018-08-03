@@ -6,7 +6,7 @@
 		<div class="content">
 			<div class="tab">
 				<div class="tabitem">
-					<div class="tabitem-title">-框架介绍-</div>
+					<div class="tabitem-title">框架介绍</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">
@@ -23,16 +23,33 @@
 					</div>
 				</div>
 				<div class="tabitem">
-					<div class="tabitem-title">-基本功能-</div>
+					<div class="tabitem-title">部分功能</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
-							<li class="tabitem-li">路由传参</li>
-							<li class="tabitem-li">代理服务</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/param'}" class="rlink">
+									页面明文传参
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/jsonserver'}" class="rlink">
+									json-server
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/proxy'}" class="rlink">
+									服务代理
+								</router-link>
+							</li>
+							<li class="tabitem-li">vuex应用</li>
+							<li class="tabitem-li">token过滤</li>
+							<li class="tabitem-li">iconfont图标</li>
+							<li class="tabitem-li">第三方库引用</li>
 						</ul>
 					</div>
 				</div>
 				<div class="tabitem">
-					<div class="tabitem-title">-公用组件-</div>
+					<div class="tabitem-title">基础组件</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">下拉列</li>
@@ -44,7 +61,7 @@
 					</div>
 				</div>
 				<div class="tabitem">
-					<div class="tabitem-title">-其它资料-</div>
+					<div class="tabitem-title">其它资料</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">作者信息</li>
@@ -65,9 +82,7 @@
 		data() {
 			return {}
 		},
-		mounted() {
-			console.log(this.$route.query); //获取路由明文传参值
-		}
+		mounted() {}
 	}
 </script>
 
@@ -104,7 +119,7 @@
 			padding: 20px;
 			.tabitem-title {
 				padding: 5px;
-				color: #c5c5c5;
+				color: #e4e4e4;
 				padding-left: 20px;
 				font-size: 20px;
 				border-radius: 5px;

@@ -68,6 +68,17 @@ module.exports = {
 			{
 				test: /\.sass$/,
 				loaders: ['style', 'css', 'sass']
+			},
+			{
+				test: /\.md$/,
+				use: [{
+						loader: "html-loader"
+					},
+					{
+						loader: "markdown-loader",
+						options: {}
+					}
+				]
 			}
 		]
 	},
