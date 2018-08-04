@@ -70,31 +70,4 @@
 			margin-top: 10px;
 		}
 	}
-	
-	.param {
-		display: flex;
-		.param-input {
-			width: 200px;
-			input {
-				font-size: 16px;
-				width: 100%;
-				height: 30px;
-				border: solid 1px #DCDFE6;
-				border-radius: 3px;
-			}
-			input:focus {
-				outline: none;
-				border: 1px solid #009688;
-			}
-		}
-		.param-btn {
-			cursor: pointer;
-			border-radius: 3px;
-			background-color: #009688;
-			color: white;
-			width: fit-content;
-			padding: 5px;
-			margin-left: 10px;
-		}
-	}
 </style>

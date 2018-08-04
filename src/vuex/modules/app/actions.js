@@ -2,11 +2,11 @@ import { _get, _post, _delete, _put } from "@/assets/js/http";
 
 let _prefix = ``; // 请求前缀
 
-//通过vuex请求后端模拟的IMockOrder接口数据 ， 参数是(content, value)，即上下文和值对象
-export const getIMockOrder = ({
+//异步请求json-server模拟的json数据包
+export const getJson = ({
 	commit
 }, query) => {
-	const url = `${_prefix}/imock_order`;
+	const url = `${_prefix}/mockGetJson`;
 	return _get({
 			url,
 			query

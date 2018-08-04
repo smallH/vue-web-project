@@ -16,6 +16,7 @@ export const SetMomentConfig = function() {
  * */
 export const SetAxiosConfig = function(router, store) {
 	let _prefix = '';
+
 	if(process.env.NODE_ENV == 'production') {
 		_prefix = `${process.env.HOST}/api`
 	} else {
@@ -30,12 +31,11 @@ export const SetAxiosConfig = function(router, store) {
 			let apiToken = '';
 			try {
 				let token = store.state.app.apiToken; //检测app模块状态栏是否有token
-				token = null;
 				if(token) {
 					apiToken = token;
 				} else if(getLocalStorage('api_token')) {
 					apiToken = getLocalStorage('api_token'); // 从本地缓存中获取token，若无则为空
-					//					store.commit('FETCH_API_TOKEN', apiToken); //发送推送，将此token添加到相应模块状态值中getLocalStorage
+					store.commit('API_TOKEN', apiToken); //发送推送，将此token添加到状态值中
 				}
 			} catch(e) {}
 			if(apiToken) {
@@ -71,16 +71,17 @@ export const SetRouterTransition = function(router, store) {
 	/* 页面跳转前 */
 	router.beforeEach((to, from, next) => {
 		if(to.meta.needToken) {
-			//			if(store.state.app.apiToken || getLocalStorage('api_token')) {
-			next();
-			//			} else {
-			//				next({
-			//					path: '/',
-			//					query: {
-			//						redirect: to.fullPath
-			//					}
-			//				})
-			//			}
+			if(store.state.app.apiToken || getLocalStorage('api_token')) {
+				next();
+			} else {
+				// 若无token值直接返回登录页
+				next({
+					path: '/',
+					query: {
+						redirect: to.fullPath
+					}
+				})
+			}
 		} else {
 			next();
 		}

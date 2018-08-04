@@ -2,10 +2,10 @@ import vue from 'vue';
 import axios from 'axios';
 
 /**
- * get请求  查询
+ * get请求
  * @param  {String} options.url   api地址
  * @param  {String} options.query query参数
- * @return {Promise}               Promise
+ * @return {Promise}              Promise对象
  */
 export const _get = ({
 	url,
@@ -34,21 +34,21 @@ export const _get = ({
 };
 
 /**
- * post请求  查询
+ * post请求
  * @param  {String} options.url   api地址
  * @param  {String} options.query query参数
- * @return {Promise}               Promise
+ * @return {Promise}              Promise对象
  */
 export const _post = ({
 	url,
-	query
+	body
 }, commit) => {
 	if(commit) commit('START_LOADING');
 
 	return axios({
 		method: 'post',
 		url,
-		data: { ...query
+		data: { ...body
 		} // post 请求时带的参数
 	}).then((res) => {
 		if(commit) commit('FINISH_LOADING');
@@ -67,10 +67,10 @@ export const _post = ({
 };
 
 /**
- * delete请求  查询
+ * delete请求
  * @param  {String} options.url   api地址
  * @param  {String} options.query query参数
- * @return {Promise}               Promise
+ * @return {Promise}              Promise对象
  */
 export const _delete = ({
 	url,
@@ -100,22 +100,22 @@ export const _delete = ({
 };
 
 /**
- * put请求  增加，
+ * put请求
  * 当用于更新操作时，需传递包含sql记录的全部字段的对象，否则缺少的属性该字段将在数据库置空。
  * @param  {String} options.url   api地址
  * @param  {String} options.query query参数
- * @return {Promise}               Promise
+ * @return {Promise}              Promise对象
  */
 export const _put = ({
 	url,
-	query
+	body
 }, commit) => {
 	if(commit) commit('START_LOADING');
 
 	return axios({
 		method: 'put',
 		url,
-		data: { ...query
+		data: { ...body
 		} // put 请求时带的参数
 	}).then((res) => {
 		if(commit) commit('FINISH_LOADING');
@@ -134,21 +134,22 @@ export const _put = ({
 };
 
 /**
- * patch请求  更新
+ * patch请求
+ * 当用于更新操作时，需传递包含sql记录的部分字段的对象且只更新该部分字段内容。
  * @param  {String} options.url   api地址
  * @param  {String} options.query query参数
- * @return {Promise}               Promise
+ * @return {Promise}              Promise对象
  */
 export const _patch = ({
 	url,
-	query
+	body
 }, commit) => {
 	if(commit) commit('START_LOADING');
 
 	return axios({
 		method: 'patch',
 		url,
-		data: { ...query
+		data: { ...body
 		} // put 请求时带的参数
 	}).then((res) => {
 		if(commit) commit('FINISH_LOADING');

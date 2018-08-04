@@ -41,10 +41,26 @@
 									服务代理
 								</router-link>
 							</li>
-							<li class="tabitem-li">vuex应用</li>
-							<li class="tabitem-li">token过滤</li>
-							<li class="tabitem-li">iconfont图标</li>
-							<li class="tabitem-li">第三方库引用</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/vx'}" class="rlink">
+									vuex应用
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/token'}" class="rlink">
+									token验证
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/iconfont'}" class="rlink">
+									iconfont图标
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/thirdjs'}" class="rlink">
+									第三方库引用
+								</router-link>
+							</li>
 						</ul>
 					</div>
 				</div>

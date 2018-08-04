@@ -13,7 +13,7 @@ export default new VueRouter({
 		name: 'login',
 		component: _import('login/index'),
 		meta: {
-			needToken: true
+			needToken: false
 		}
 	}, {
 		path: '/core',
@@ -74,6 +74,38 @@ export default new VueRouter({
 				path: '/pages/action/proxy',
 				component: _import('pages/action/proxy'),
 				name: '服务代理',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/vx',
+				component: _import('pages/action/vx'),
+				name: 'vuex应用',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/token',
+				component: _import('pages/action/token'),
+				name: 'token验证',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/iconfont',
+				component: _import('pages/action/iconfont'),
+				name: 'iconfont图标管理',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/thirdjs',
+				component: _import('pages/action/thirdjs'),
+				name: '第三方库引用',
 				meta: {
 					needToken: true
 				}

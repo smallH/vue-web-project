@@ -7,12 +7,15 @@
 </template>
 
 <script>
+	import { setLocalStorage } from '@/assets/js/utils';
+
 	export default {
 		// 命名
 		name: 'login',
 		// 方法
 		methods: {
 			enterBtn() {
+				setLocalStorage("api_token","api&token&value");
 				this.$router.push({
 					path: '/core',
 					query: {
