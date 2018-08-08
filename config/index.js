@@ -6,7 +6,7 @@ const path = require('path')
 
 var host_env = process.env.HOST ? process.env.HOST : 'localhost';
 var port_env = process.env.PORT ? process.env.PORT : '8080';
-var cdn_env = process.env.CDN ? process.env.CDN : '/';
+var cdn_env = process.env.CDN ? process.env.CDN : './';
 
 module.exports = {
 	dev: {

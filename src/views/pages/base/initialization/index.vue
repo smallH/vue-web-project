@@ -4,7 +4,6 @@
 			<div class="title">初始化</div>
 			<div class="line"></div>
 			<div class="content">
-				<div>GitHub下载地址：https://github.com/smallH/vue-web-project</div>
 				<div class="torder">项目初始化命令：</div>
 				<pre><code class="code">$ npm install</code></pre>
 				<div class="torder">项目运行命令：</div>

@@ -105,7 +105,63 @@ export default new VueRouter({
 			{
 				path: '/pages/action/thirdjs',
 				component: _import('pages/action/thirdjs'),
-				name: '第三方库引用',
+				name: '其它文件引用',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/comp/uiselect',
+				component: _import('pages/comp/uiselect'),
+				name: '下拉列',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/comp/uitable',
+				component: _import('pages/comp/uitable'),
+				name: '表格',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/comp/uipagination',
+				component: _import('pages/comp/uipagination'),
+				name: '分页',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/comp/uiconfirm',
+				component: _import('pages/comp/uiconfirm'),
+				name: '询问框',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/comp/uimessage',
+				component: _import('pages/comp/uimessage'),
+				name: '消息框',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/comp/uimap',
+				component: _import('pages/comp/uimap'),
+				name: '高德地图',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/other/author',
+				component: _import('pages/other/author'),
+				name: '作者',
 				meta: {
 					needToken: true
 				}

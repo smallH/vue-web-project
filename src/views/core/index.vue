@@ -58,7 +58,7 @@
 							</li>
 							<li class="tabitem-li">
 								<router-link :to="{path:'/pages/action/thirdjs'}" class="rlink">
-									第三方库引用
+									其它文件引用
 								</router-link>
 							</li>
 						</ul>
@@ -68,19 +68,48 @@
 					<div class="tabitem-title">基础组件</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
-							<li class="tabitem-li">下拉列</li>
-							<li class="tabitem-li">表格</li>
-							<li class="tabitem-li">询问框</li>
-							<li class="tabitem-li">提示框</li>
-							<li class="tabitem-li">高德地图</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/comp/uiselect'}" class="rlink">
+									下拉列
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/comp/uitable'}" class="rlink">
+									表格
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/comp/uipagination'}" class="rlink">
+									分页
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/comp/uiconfirm'}" class="rlink">
+									询问框
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/comp/uimessage'}" class="rlink">
+									消息框
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/comp/uimap'}" class="rlink">
+									高德地图
+								</router-link>
+							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="tabitem">
+				<div class="tabitem" style="padding-bottom: 50px;">
 					<div class="tabitem-title">其它资料</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
-							<li class="tabitem-li">作者信息</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/other/author'}" class="rlink">
+									作者信息
+								</router-link>
+							</li>
 						</ul>
 					</div>
 				</div>

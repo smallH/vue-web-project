@@ -1,11 +1,11 @@
 <template>
 	<div id="thirdjs">
 		<div class="bground">
-			<div class="title">第三方库引用</div>
+			<div class="title">其它文件引用</div>
 			<div class="line"></div>
 			<div class="content">
-				<div>第三方库引用是指对第三方提供的js库的引用，一些特殊的库需要手动导入.css文件，如wow.js。</div>
-				<div class="code-title">Demo：</div>
+				<div>第三方库引用是指对第三方提供的js库的引用，一些特殊的库需要手动导入.css文件，如wow.js。静态资源的引用是指对比较少变化或比较大的资源的引用，通常放到框架根目录的static文件夹内，在服务器中，往往会将此类资源放在CDN服务器中。</div>
+				<div class="code-title">第三方库引用Demo：</div>
 				<div class="wow flash">页面刷新，文字闪烁特效</div>
 				<div class="code-title">核心代码：</div>
 				<div class="md">
@@ -19,6 +19,10 @@
 	});
 	wow.init();</code></pre>
 				</div>
+				<div class="code-title">静态资源引用Demo：</div>
+				<div>
+					<img :src="imgUrl" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -31,7 +35,9 @@
 	export default {
 		name: 'thirdjs',
 		data() {
-			return {}
+			return {
+				imgUrl: 'static/logo.png'
+			}
 		},
 		methods: {},
 		mounted() {
