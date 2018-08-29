@@ -8,6 +8,7 @@ const _import =
 	require("./_import_dev.env");
 
 export default new VueRouter({
+	mode: 'hash',
 	routes: [{
 		path: '/',
 		name: 'login',
@@ -162,6 +163,22 @@ export default new VueRouter({
 				path: '/pages/other/author',
 				component: _import('pages/other/author'),
 				name: '作者',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/other/learn',
+				component: _import('pages/other/learn'),
+				name: '知识点总结',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/other/virtualdom',
+				component: _import('pages/other/virtualdom'),
+				name: '虚拟DOM',
 				meta: {
 					needToken: true
 				}

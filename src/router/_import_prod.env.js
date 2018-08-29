@@ -15,5 +15,14 @@ const routerAsyn = {
 	'pages/action/vx': r => require.ensure([], () => r(require(`../views/pages/action/vx/index`)), `pages/action/vx/index`),
 	'pages/action/token': r => require.ensure([], () => r(require(`../views/pages/action/token/index`)), `pages/action/token/index`),
 	'pages/action/iconfont': r => require.ensure([], () => r(require(`../views/pages/action/iconfont/index`)), `pages/action/iconfont/index`),
-	'pages/action/thirdjs': r => require.ensure([], () => r(require(`../views/pages/action/thirdjs/index`)), `pages/action/thirdjs/index`)
+	'pages/action/thirdjs': r => require.ensure([], () => r(require(`../views/pages/action/thirdjs/index`)), `pages/action/thirdjs/index`),
+	'pages/comp/uiconfirm': r => require.ensure([], () => r(require(`../views/pages/comp/uiconfirm/index`)), `pages/comp/uiconfirm/index`),
+	'pages/comp/uimap': r => require.ensure([], () => r(require(`../views/pages/comp/uimap/index`)), `pages/comp/uimap/index`),
+	'pages/comp/uimessage': r => require.ensure([], () => r(require(`../views/pages/comp/uimessage/index`)), `pages/comp/uimessage/index`),
+	'pages/comp/uipagination': r => require.ensure([], () => r(require(`../views/pages/comp/uipagination/index`)), `pages/comp/uipagination/index`),
+	'pages/comp/uiselect': r => require.ensure([], () => r(require(`../views/pages/comp/uiselect/index`)), `pages/comp/uiselect/index`),
+	'pages/comp/uitable': r => require.ensure([], () => r(require(`../views/pages/comp/uitable/index`)), `pages/comp/uitable/index`),
+	'pages/other/author': r => require.ensure([], () => r(require(`../views/pages/other/author/index`)), `pages/other/author/index`),
+	'pages/other/learn': r => require.ensure([], () => r(require(`../views/pages/other/learn/index`)), `pages/other/learn/index`),
+	'pages/other/virtualdom': r => require.ensure([], () => r(require(`../views/pages/other/virtualdom/index`)), `pages/other/virtualdom/index`)
 };

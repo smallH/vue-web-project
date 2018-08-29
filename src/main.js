@@ -6,8 +6,11 @@ import router from './router';
 import store from './vuex/store';
 import * as filters from './filters'; //全局过滤器
 import { SetMomentConfig, SetAxiosConfig, SetRouterTransition } from '@/assets/js/middleware'; //中间件
+import VueBus from '@/assets/js/vue-bus';
 import '@/assets/css/iconfont.styl'; // 图标样式
 import '@/assets/css/base.styl'; // 基础样式
+
+Vue.use(VueBus);
 
 // Vue全局设置
 Vue.config.productionTip = false; //设置为false以阻止vue在启动时生成生产提示

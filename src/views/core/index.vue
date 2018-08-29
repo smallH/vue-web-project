@@ -106,6 +106,16 @@
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/other/learn'}" class="rlink">
+									常用知识点
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/other/virtualdom'}" class="rlink">
+									Render函数
+								</router-link>
+							</li>
+							<li class="tabitem-li">
 								<router-link :to="{path:'/pages/other/author'}" class="rlink">
 									作者信息
 								</router-link>
