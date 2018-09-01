@@ -3,14 +3,14 @@
 		<div class="bground">
 			<div class="title">作者资料</div>
 			<div class="line"></div>
-			<div class="content">黄泽平，在企业中历任高级前端开发工程师、项目主管，YYUI网创始人。​有7年开发工作经验，关注前端技术发展动态，掌握vue、angular、react、nodejs、nwjs、webpack等多种前端框架及相关工具。在实际项目中兼熟悉后端系统设计及开发，使用过java、mysql等后端技术完成开发，同时对服务器的部署与运维有一定程度的操作经验。</div>
-			<div class="code-title">主要成就：</div>
-			<div>CSDN社区拥有原创技术博客100余篇及4个技术专栏；YYUI网创始人；vue-web前端框架创建者。</div>
-			<div class="code-title">CSDN个人博客：</div>
+			<div class="content">黄泽平，在企业中历任高级前端开发工程师、项目主管，YYUI前端网创始人。​有7年开发工作经验，掌握vue、angular、react、nodejs、nwjs、webpack等多种前端框架及相关工具，兼熟悉后端java、mysql等后端技术，对服务器的部署与运维有一定经验，全栈工程师发展方向。</div>
+			<div class="code-title">技术成果：</div>
+			<div>CSDN社区原创技术博客100余篇及4个技术专栏；YYUI前端网创始人；VueYu前端框架设计及创建</div>
+			<div class="code-title">个人博客：</div>
 			<div>http://blog.csdn.net/zeping891103</div>
-			<div class="code-title">YYUI网：</div>
+			<div class="code-title">YYUI前端网：</div>
 			<div>http://www.helloui.net</div>
-			<div class="code-title">GitHub社区vue-web前端框架：</div>
+			<div class="code-title">GitHub社区VueYu前端框架：</div>
 			<div>https://github.com/smallH/vue-web-project</div>
 			<div class="code-title">交流微信号：</div>
 			<img :src="imgUrl" class="img" />

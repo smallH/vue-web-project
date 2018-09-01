@@ -26,7 +26,7 @@ export default new VueRouter({
 		children: [{
 				path: '/',
 				name: '概述',
-				component: _import('pages/base/initialization'),
+				component: _import('pages/base/introduction'),
 				meta: {
 					needToken: true
 				}
@@ -34,7 +34,7 @@ export default new VueRouter({
 			{
 				path: '/pages/base/initialization',
 				component: _import('pages/base/initialization'),
-				name: '概述',
+				name: '初始化',
 				meta: {
 					needToken: true
 				}
@@ -42,7 +42,7 @@ export default new VueRouter({
 			{
 				path: '/pages/base/introduction',
 				component: _import('pages/base/introduction'),
-				name: '初始化',
+				name: '概述',
 				meta: {
 					needToken: true
 				}

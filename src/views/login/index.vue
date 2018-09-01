@@ -1,8 +1,8 @@
 <!-- vue文件基本结构 -->
 <template>
 	<div id="login">
-		<div class="title">欢迎使用vue-web框架 ！</div>
-		<div class="btn" @click="enterBtn">进入vue-web框架</div>
+		<div class="title">欢迎使用 VueYu 框架 ！</div>
+		<div class="btn" @click="enterBtn">进入 VueYu 框架</div>
 	</div>
 </template>
 
@@ -15,7 +15,7 @@
 		// 方法
 		methods: {
 			enterBtn() {
-				setLocalStorage("api_token","api&token&value");
+				setLocalStorage("api_token", "api&token&value");
 				this.$router.push({
 					path: '/core',
 					query: {

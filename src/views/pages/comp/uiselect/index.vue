@@ -4,7 +4,7 @@
 			<div class="title">下拉列</div>
 			<div class="line"></div>
 			<div class="content">
-				<div>当选项过多时，使用下拉菜单展示并选择内容。</div>
+				<div>(本框架组件只设计了部分常用组件，主要目的在于展示组件制定的代码规范)<br /><br />当选项过多时，使用下拉菜单展示并选择内容。</div>
 				<div class="code-title">基础用法：</div>
 				<div class="select-comp">
 					<base-select v-model="vmSelectedItem" :options="options" :placeholder="placeholder"></base-select>

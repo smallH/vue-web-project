@@ -4,7 +4,7 @@
 			<div class="title">vuex应用</div>
 			<div class="line"></div>
 			<div class="content">
-				<div>每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。在实际应用中，vuex主要有两个作用：1.存储状态值，即set/get。2.实现异步请求，如对服务端数据的请求脚本可封装在vuex中。在本框架根目录vuex文件夹中，已配置了一个vuex应用。</div>
+				<div>Vuex应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。在实际应用中，vuex主要有两个作用：1.存储状态值，即set/get。2.实现异步请求，如对服务端数据的请求脚本可封装在vuex中。在本框架根目录vuex文件夹中，已配置了一个vuex应用。</div>
 				<div class="code-title">存储状态值Demo：</div>
 				<div class="param">
 					<div class="param-input">

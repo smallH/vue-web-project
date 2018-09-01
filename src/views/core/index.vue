@@ -1,7 +1,7 @@
 <template>
 	<div id="core">
 		<div class="header">
-			<div class="header-title">welcome to vue-web !</div>
+			<div class="header-title">VueYu 前端框架</div>
 		</div>
 		<div class="content">
 			<div class="tab">
@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="tabitem">
-					<div class="tabitem-title">部分功能</div>
+					<div class="tabitem-title">主要功能</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">
@@ -102,7 +102,7 @@
 					</div>
 				</div>
 				<div class="tabitem" style="padding-bottom: 50px;">
-					<div class="tabitem-title">其它资料</div>
+					<div class="tabitem-title">框架延伸</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">
