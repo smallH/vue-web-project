@@ -1,30 +1,16 @@
 # vue-web-project
+VueYu前端框架
 
-> A Vue.js project
+# 一.框架知识
+## (1) this.$router.push与this.$router.replace的区别
+- this.$router.push：这个方法会向 history 栈添加一个新的记录，所以，当用户点击浏览器后退按钮时，则回到之前的 URL。
+- this.$router.replace：跟 router.push 很像，唯一的不同就是，它不会向 history 添加新记录，而是跟它的方法名一样 —— 替换掉当前的 history 记录
 
-## Build Setup
+## (2) 清理node_modules命令
+- npm install rimraf -g
+- rimraf node_modules
 
-``` bash
-# install dependencies
-npm install
+## (3) document.querySelector用法 获取标签对象并修改样式
+document.querySelector("#etble .el-loading-mask").style.fontSize = "30px";
 
-# serve with hot reload at localhost:8080
-npm run dev
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
