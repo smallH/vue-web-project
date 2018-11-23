@@ -1,8 +1,8 @@
 <!-- vue文件基本结构 -->
 <template>
 	<div id="login">
-		<div class="title">欢迎使用 VueYu 框架 ！</div>
-		<div class="btn" @click="enterBtn">进入 VueYu 框架</div>
+		<div class="title">欢迎使用 vue-web-project 框架 ！</div>
+		<div class="btn" @click="enterBtn">进入 vue-web-project 框架</div>
 	</div>
 </template>
 

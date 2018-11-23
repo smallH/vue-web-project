@@ -1,7 +1,7 @@
 <template>
 	<div id="core">
 		<div class="header">
-			<div class="header-title">VueYu 前端框架</div>
+			<div class="header-title">vue-web-project前端框架</div>
 		</div>
 		<div class="content">
 			<div class="tab">

@@ -3,12 +3,10 @@
 		<div class="bground">
 			<div class="title">作者资料</div>
 			<div class="line"></div>
-			<div class="content">黄泽平，在企业中历任高级前端开发工程师、项目主管、产品经理、用户交互体验设计师，交互体验设计网站helloui.net创始人。​有7年开发工作经验，熟练掌握vue、angular、react、nodejs、nwjs、webpack等多种前端技术，熟悉后端系统设计及产品运维。</div>
-			<div class="code-title">技术成果：</div>
-			<div>helloui.net工作室创始人；CSDN原创技术博客分享100余篇及4个技术专栏；VueYu前端框架（适用于中大型项目）创建者等</div>
-			<div class="code-title">个人博客：</div>
+			<div class="content">黄泽平，在企业中历任高级前端开发工程师、项目主管、交互设计师、DeepUI网创始人。​有7年前后端开发工作经验，熟练掌握vue、angular、react、nodejs、nwjs、webpack等多种前端主流技术，时常关注前端技术的发展和动态。成果有csdn原创技术文章100余篇、4个技术专栏；github社区vue-web-project等多个前端框架和代码模块等。</div>
+			<div class="code-title">csdn博客地址：</div>
 			<div>http://blog.csdn.net/zeping891103</div>
-			<div class="code-title">GitHub社区VueYu前端框架：</div>
+			<div class="code-title">github上发布的前端框架vue-web-project地址：</div>
 			<div>https://github.com/smallH/vue-web-project</div>
 			<div class="code-title">交流微信号：</div>
 			<img :src="imgUrl" class="img" />
