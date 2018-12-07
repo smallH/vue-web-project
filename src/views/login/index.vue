@@ -2,7 +2,7 @@
 <template>
 	<div id="login">
 		<div class="title">欢迎使用 vue-web-project 框架 ！</div>
-		<div class="btn" @click="enterBtn">进入 vue-web-project 框架</div>
+		<div class="btn" @click="enterBtn">起步</div>
 	</div>
 </template>
 
