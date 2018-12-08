@@ -18,15 +18,22 @@ export default new VueRouter({
 		}
 	}, {
 		path: '/core',
-		name: 'core',
 		component: _import('core/index'),
 		meta: {
 			needToken: true
 		},
 		children: [{
 				path: '/',
-				name: '概述',
+				name: '首页',
 				component: _import('pages/base/introduction'),
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/base/introduction',
+				component: _import('pages/base/introduction'),
+				name: '介绍',
 				meta: {
 					needToken: true
 				}
@@ -40,14 +47,6 @@ export default new VueRouter({
 				}
 			},
 			{
-				path: '/pages/base/introduction',
-				component: _import('pages/base/introduction'),
-				name: '概述',
-				meta: {
-					needToken: true
-				}
-			},
-			{
 				path: '/pages/action/param',
 				component: _import('pages/action/param'),
 				name: '页面明文传参',
@@ -56,9 +55,17 @@ export default new VueRouter({
 				}
 			},
 			{
-				path: '/pages/action/param/getparam',
-				component: _import('pages/action/param/getparam'),
-				name: '页面明文传参',
+				path: '/pages/action/filter',
+				component: _import('pages/action/filter'),
+				name: '全局过滤',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/routerasyn',
+				component: _import('pages/action/routerasyn'),
+				name: '懒加载',
 				meta: {
 					needToken: true
 				}
@@ -99,6 +106,14 @@ export default new VueRouter({
 				path: '/pages/action/iconfont',
 				component: _import('pages/action/iconfont'),
 				name: 'iconfont图标管理',
+				meta: {
+					needToken: true
+				}
+			},
+			{
+				path: '/pages/action/http',
+				component: _import('pages/action/http'),
+				name: 'http',
 				meta: {
 					needToken: true
 				}

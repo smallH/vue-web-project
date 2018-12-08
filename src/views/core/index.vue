@@ -1,7 +1,7 @@
 <template>
 	<div id="core">
 		<div class="header">
-			<div class="header-title">vue-web-project前端框架</div>
+			<div class="header-title">vue-web-project 前端框架</div>
 		</div>
 		<div class="content">
 			<div class="tab">
@@ -11,39 +11,29 @@
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">
 								<router-link :to="{path:'/pages/base/introduction'}" class="rlink">
-									概述
+									介绍
 								</router-link>
 							</li>
-							<li class="tabitem-li">
+							<!--<li class="tabitem-li">
 								<router-link :to="{path:'/pages/base/initialization'}" class="rlink">
 									初始化
 								</router-link>
-							</li>
+							</li>-->
 						</ul>
 					</div>
 				</div>
 				<div class="tabitem">
-					<div class="tabitem-title">主要功能</div>
+					<div class="tabitem-title">功能参考</div>
 					<div class="tabitem-mune">
 						<ul class="tabitem-ul">
 							<li class="tabitem-li">
 								<router-link :to="{path:'/pages/action/param'}" class="rlink">
-									页面明文传参
-								</router-link>
-							</li>
-							<li class="tabitem-li">
-								<router-link :to="{path:'/pages/action/jsonserver'}" class="rlink">
-									json-server
+									路由传参
 								</router-link>
 							</li>
 							<li class="tabitem-li">
 								<router-link :to="{path:'/pages/action/proxy'}" class="rlink">
-									服务代理
-								</router-link>
-							</li>
-							<li class="tabitem-li">
-								<router-link :to="{path:'/pages/action/vx'}" class="rlink">
-									vuex应用
+									proxy代理
 								</router-link>
 							</li>
 							<li class="tabitem-li">
@@ -52,13 +42,38 @@
 								</router-link>
 							</li>
 							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/filter'}" class="rlink">
+									filters
+								</router-link>
+							</li>
+							<li class="tabitem-li">
 								<router-link :to="{path:'/pages/action/iconfont'}" class="rlink">
-									iconfont图标
+									iconfont
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/vx'}" class="rlink">
+									vuex
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/http'}" class="rlink">
+									http
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/jsonserver'}" class="rlink">
+									json-server
+								</router-link>
+							</li>
+							<li class="tabitem-li">
+								<router-link :to="{path:'/pages/action/routerasyn'}" class="rlink">
+									路由懒加载
 								</router-link>
 							</li>
 							<li class="tabitem-li">
 								<router-link :to="{path:'/pages/action/thirdjs'}" class="rlink">
-									其它文件引用
+									文件引用
 								</router-link>
 							</li>
 						</ul>
@@ -167,7 +182,7 @@
 	.tab {
 		overflow-y: auto;
 		height: 100%;
-		width: 200px;
+		width: 250px;
 		border-right: solid 1px black;
 		background-color: #00746a;
 		.tabitem {
@@ -197,6 +212,8 @@
 		flex: 1;
 		height: 100%;
 		background-color: #fff;
+		padding-left: 50px;
+		padding-right: 150px;
 	}
 	
 	.rlink {

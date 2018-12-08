@@ -1,19 +1,23 @@
 <template>
-	<div id="paramindex">
+	<div id="routerparam">
 		<div class="bground">
-			<div class="title">页面明文传参</div>
+			<div class="title">路由传递参数</div>
 			<div class="line"></div>
 			<div class="content">
-				<div class="code-title">Demo：</div>
-				<div class="param">
-					<div class="param-input">
-						<input type="text" v-model="inputText" />
-					</div>
-					<div class="param-btn" @click="paramBtn">传递参数</div>
-				</div>
-				<div class="code-title">核心代码：</div>
+				<div>路由切换页面时，若需要页面间传递参数，可使用 push：</div>
+				<div class="code-title"></div>
 				<div class="md">
-					<pre><code>{{md}}</code></pre>
+					<pre v-highlightjs><code class="javascript">// 路由跳转并传参
+	this.$router.push({
+		path: '/somewhere', //其它页面的path地址
+		data: {
+			id: "" ,
+			name:""
+		}
+	})
+	
+	// 新页面接受传递的参数
+	this.$route.data; // {id:"", name:""}</code></pre>
 				</div>
 			</div>
 		</div>
@@ -21,33 +25,13 @@
 </template>
 
 <script>
-	import paramCodeMD from './code.md'
-
 	export default {
-		name: 'paramindex',
-		data() {
-			return {
-				inputText: "",
-				md: paramCodeMD
-			}
-		},
-		methods: {
-			paramBtn() {
-				let _this = this;
-				this.$router.push({
-					path: '/pages/action/param/getparam',
-					query: {
-						data: _this.inputText
-					}
-				})
-			}
-		},
-		mounted() {}
+		name: 'routerparam',
 	}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-	#paramindex {
+	#routerparam {
 		padding: 30px;
 	}
 	
@@ -57,13 +41,8 @@
 	}
 	
 	.md {
-		color: white;
-		background-color: black;
-		padding: 10px;
 		margin-top: 10px;
-		border-radius: 3px;
-		font-size: 16px;
-		width: 1000px;
+		font-size: 18px;
 	}
 	
 	.bground {

@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<global-confirm v-if="confirmVisible" :title="confirmTitle" :text="confirmText" @clean="confirmCleanHandle" @ok="confirmOKHandle"></global-confirm>
-		<global-message ref="msgComp" :text="messageText"></global-message>
+		<global-confirm v-if="cfmVisible" :title="cfmTitle" :text="cfmText" @clean="cfmCleanHandle" @ok="cfmOKHandle"></global-confirm>
+		<global-message ref="msgComp" :text="msgText"></global-message>
 		<router-view/>
 	</div>
 </template>
@@ -12,19 +12,20 @@
 	import GlobalMessage from '@/components/global-message.vue'
 	import Vue from 'vue';
 
+	// 定义全局组件询问框
 	Vue.prototype.$globalConfirm = function($title, $msg, $successCallback, $cleanCallback) {
 		let _this = this;
 		let data = {};
 		data.visible = true;
 		data.title = $title;
 		data.text = $msg;
-		data.cleanHandle = function(e) {
+		data.cleanHandle = (e) => {
 			_this.$store.commit("COMP_CONFIRM", {
 				visible: false
 			});
 			$cleanCallback();
 		};
-		data.okHandle = function() {
+		data.okHandle = () => {
 			_this.$store.commit("COMP_CONFIRM", {
 				visible: false
 			});
@@ -33,6 +34,7 @@
 		_this.$store.commit("COMP_CONFIRM", data);
 	};
 
+	// 定义全局组件消息框
 	Vue.prototype.$globalMessage = function($text, $time) {
 		this.$store.commit("COMP_MESSAGE", {
 			text: $text
@@ -51,15 +53,13 @@
 		},
 		computed: {
 			...mapGetters({
-				confirmVisible: "getConfirmVisible",
-				confirmTitle: "getConfirmTitle",
-				confirmText: "getConfirmText",
-				confirmCleanHandle: "getConfirmCleanHandle",
-				confirmOKHandle: "getConfirmOKHandle",
-				messageText: "getMessageText"
+				cfmVisible: "getVisible_Confirm",
+				cfmTitle: "getTitle_Confirm",
+				cfmText: "getText_Confirm",
+				cfmCleanHandle: "getCleanHandle_Confirm",
+				cfmOKHandle: "getOKHandle_Confirm",
+				msgText: "getText_Message"
 			})
 		}
 	}
 </script>
-
-<style></style>

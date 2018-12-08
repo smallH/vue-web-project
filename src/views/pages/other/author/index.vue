@@ -3,11 +3,9 @@
 		<div class="bground">
 			<div class="title">作者资料</div>
 			<div class="line"></div>
-			<div class="content">黄泽平，在企业中历任高级前端开发工程师、项目主管、交互设计师、DeepUI网创始人。​有7年前后端开发工作经验，熟练掌握vue、angular、react、nodejs、nwjs、webpack等多种前端主流技术，时常关注前端技术的发展和动态。成果有csdn原创技术文章100余篇、4个技术专栏；github社区vue-web-project等多个前端框架和代码模块等。</div>
-			<div class="code-title">csdn博客地址：</div>
+			<div class="content">黄泽平，在企业中历任高级前端开发工程师、项目主管、交互体验设计师、DeepUI网创始人。​有7年前后端开发工作经验，熟练掌握 vue、react+redux、angular、nodejs、nwjs、webpack等多种前端主流技术，热爱前端开发，在csdn有大量前端原创技术分享。</div>
+			<div class="code-title">csdn个人交流博客：</div>
 			<div>http://blog.csdn.net/zeping891103</div>
-			<div class="code-title">github上发布的前端框架vue-web-project地址：</div>
-			<div>https://github.com/smallH/vue-web-project</div>
 			<div class="code-title">交流微信号：</div>
 			<img :src="imgUrl" class="img" />
 		</div>
@@ -64,7 +62,7 @@
 		}
 	}
 	
-	.img{
+	.img {
 		width: 20%;
 		margin-top: 10px;
 	}

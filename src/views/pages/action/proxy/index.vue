@@ -1,13 +1,13 @@
 <template>
 	<div id="proxy">
 		<div class="bground">
-			<div class="title">服务代理</div>
+			<div class="title">proxy代理服务</div>
 			<div class="line"></div>
 			<div class="content">
-				<div>服务代理是指通过访问本地域名即可有权限访问非同域下的服务器。服务代理常用于开发环境中，正常的开发环境下一般基于前后端分离，前端和后端往往不在同一个服务器下进行开发，此时使用服务代理可以将前端请求模拟成同一服务器下实现，在正式部署时就无需再修改请求接口的域名地址。</div>
-				<div class="code-title">在启动json-server的基础上，config/index.js文件中服务代理配置项proxyTable配置如下：</div>
+				<div>proxy代理服务是指通过代理实现访问非同域下的后台数据的服务，仅用于开发环境。基于前后端分离原则，开发过程中联调时常常存在跨域请求的问题，使用proxy代理服务可以将请求模拟至同一域名下，解决了跨域联调问题。要使用代理服务，需要配置proxy项：</div>
+				<div class="code-title">假设服务端的域名和端口为http://127.17.5.117:3000，打开root/config/index.js文件，配置proxyTable项如下：</div>
 				<div class="md">
-					<pre><code>dev: {
+					<pre v-highlightjs><code class="javascript">dev: {
 		...
 		proxyTable: {
 			'/api': {
@@ -28,20 +28,18 @@
 			}
 		},
 		...
-	},</code></pre>
+	}</code></pre>
 				</div>
-				<div class="code-title">有了服务代理，访问本地域名http://127.0.0.1/api/即可访问到非同域的http://127.17.5.117:3000服务：</div>
+				<div class="code-title">配置后，重启项目，访问本项目自身域名就等效于访问非同域下的http://127.17.5.117:3000且不会有跨域访问的错误：</div>
 				<div class="md">
-					<pre><code>let path = "http://127.0.0.1/api/mockGetJson";
-	this.$http.get(path).then(function(resp) {
+					<pre v-highlightjs><code class="javascript">import axios from 'axios'
+	
+	let path = "http://127.0.0.1/api/mockGetJson"; // 等同于访问http://127.17.5.117:3000/api/mockGetJson且不会有跨域错误
+	axios.get(path).then(function(resp) {
 		console.log(resp.data);
 	}).catch(error => {
 		console.log(error);
 	});</code></pre>
-				</div>
-				<div class="code-title">其中this.$http定义为：</div>
-				<div class="md">
-					<pre><code>Vue.prototype.$http = axios;</code></pre>
 				</div>
 			</div>
 		</div>
@@ -51,18 +49,6 @@
 <script>
 	export default {
 		name: 'proxy',
-		data() {
-			return {}
-		},
-		methods: {},
-		mounted() {
-			let path = "http://127.0.0.1/api/mockGetJson";
-			this.$http.get(path).then(function(resp) {
-				console.log(resp.data);
-			}).catch(error => {
-				console.log(error);
-			});
-		}
 	}
 </script>
 
@@ -77,13 +63,8 @@
 	}
 	
 	.md {
-		color: white;
-		background-color: black;
-		padding: 10px;
 		margin-top: 10px;
-		border-radius: 3px;
 		font-size: 16px;
-		width: 1000px;
 	}
 	
 	.bground {

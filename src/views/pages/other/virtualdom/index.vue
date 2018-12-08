@@ -9,7 +9,7 @@
 				<div>
 					<div>DOM是文档对象模型(Document Object Model)的简写，在浏览器中我们可以通过js来操作DOM，但是这样的操作性能很差，于是Virtual Dom应运而生。Virtual Dom就是在js中模拟DOM对象树来优化DOM操作的一种技术或思路，其中Virtual Dom对象树的每个节点用VNode表示。当发生变化时，就对同级VNode进行Diff算法，最终通过Rander函数渲染VNode节点组成的对象树实现DOM操作。</div>
 					<div class="md">
-						<pre><code>{{vnodeformatMD}}</code></pre>
+						<pre v-highlightjs><code class="javascript">{{vnodeformatMD}}</code></pre>
 					</div>
 				</div>
 				<br />
@@ -17,31 +17,31 @@
 				<div>
 					<div>Render函数通过createElement参数来创建Virtual Dom对象树，createElement构成了Vue Virtual Dom的模板，它有3个参数：</div>
 					<div class="md">
-						<pre><code>{{createelementMD}}</code></pre>
+						<pre v-highlightjs><code class="javascript">{{createelementMD}}</code></pre>
 					</div>
 					<div class="top">下面是一些由浅至深的用渲染创建组件的简单例子，当使用手脚架框架通过.vue文件引入渲染实现的组件时，则去掉模板中template标签即可</div>
 					<div class="md">
-						<pre><code>{{vnodedemo1MD}}</code></pre>
+						<pre v-highlightjs><code class="javascript">{{vnodedemo1MD}}</code></pre>
 					</div>
 					<div class="top">渲染多个相同的子节点：</div>
 					<div class="md">
-						<pre><code>{{vnodedemo2MD}}</code></pre>
+						<pre v-highlightjs><code class="javascript">{{vnodedemo2MD}}</code></pre>
 					</div>
 					<div class="top">通过渲染实现v-if、v-else和v-for循环：</div>
 					<div class="md">
-						<pre><code>{{vnodedemo3MD}}</code></pre>
+						<pre v-highlightjs><code class="javascript">{{vnodedemo3MD}}</code></pre>
 					</div>
 					<div class="top">v-model语法糖渲染实现：</div>
 					<div class="md">
-						<pre><code>{{vnodedemo4MD}}</code></pre>
+						<pre v-highlightjs><code class="javascript">{{vnodedemo4MD}}</code></pre>
 					</div>
 					<div class="top">多个组件中根据参数动态选择组件：</div>
 					<div class="md">
-						<pre><code>{{vnodedemo5MD}}</code></pre>
+						<pre v-highlightjs><code class="javascript">{{vnodedemo5MD}}</code></pre>
 					</div>
 					<div class="top">jsx写法：</div>
 					<div class="md">
-						<pre><code>{{vnodedemo6MD}}</code></pre>
+						<pre v-highlightjs><code class="javascript">{{vnodedemo6MD}}</code></pre>
 					</div>
 				</div>
 				<!--使用渲染创建组件-->
@@ -264,13 +264,8 @@
 	}
 	
 	.md {
-		color: white;
-		background-color: black;
-		padding: 10px;
 		margin-top: 10px;
-		border-radius: 3px;
 		font-size: 16px;
-		width: 1000px;
 	}
 	
 	.bground {

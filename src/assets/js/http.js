@@ -69,7 +69,7 @@ export const _post = ({
 /**
  * delete请求
  * @param  {String} options.url   api地址
- * @param  {String} options.query query参数
+ * @param  {String} options.body body参数
  * @return {Promise}              Promise对象
  */
 export const _delete = ({
@@ -81,7 +81,7 @@ export const _delete = ({
 	return axios({
 		method: 'delete',
 		url,
-		data: { ...query
+		data: { ...body
 		} // delete 请求时带的参数
 	}).then((res) => {
 		if(commit) commit('FINISH_LOADING');

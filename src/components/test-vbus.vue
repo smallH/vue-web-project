@@ -1,8 +1,7 @@
 // 中央事件总线测试
 <template>
 	<div>
-		<p>{{count}}</p>
-		<button @click="addOneHandle">计数器加1</button>
+		<button @click="addOneHandle">vue-bus打印测试</button>
 	</div>
 </template>
 
@@ -10,19 +9,27 @@
 	export default {
 		name: "VueBus",
 		data() {
-			return {
-				count: 0
-			}
+			return {}
 		},
 		mounted() {
 			var _this = this;
-			this.$bus.on("add", function() {
-				_this.count++;
-			});
+			this.$bus.on("add", this.add);
+			this.$bus.on("edit", this.edit);
+		},
+		destroyed() {
+			this.$bus.off("add", this.add);
+			this.$bus.off("edit", this.edit);
 		},
 		methods: {
 			addOneHandle: function() {
 				this.$bus.emit('add');
+				this.$bus.emit('edit');
+			},
+			add: function() {
+				console.log("add-methods");
+			},
+			edit: function() {
+				console.log("edit-methods");
 			}
 		}
 	}

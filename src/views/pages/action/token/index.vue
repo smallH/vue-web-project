@@ -1,50 +1,87 @@
 <template>
 	<div id="tokencheck">
 		<div class="bground">
-			<div class="title">token验证</div>
+			<div class="title">axios配置与token验证</div>
 			<div class="line"></div>
 			<div class="content">
-				<div>token验证，首次登录时从服务端中获取，主要应用于检测用户打开某页面时是否已经登录或是否有权限请求服务，当未登录或无权限时，则返回登录界面或提示相应语句。获取token值后一般存储于本地缓存中，有一定的时效性，每次访问服务端时，会附带在请求链接的Headers中一并传输。本框架token处理相关代码封装在src/assets/js/middleware.js文件中。</div>
-				<div class="code-title">核心代码：</div>
+				<div>token验证，是指应用于检测用户打开某页面时是否已经登录或是否有权限打开的验证服务。当token验证失败时，返回登录界面或提示相应语句。获取token值后一般存储在本地缓存中，有一定的时效性，每次向服务端请求数据时，会配置在请求链接的Headers中，通过请求拦截添加，相关代码封装在root/src/assets/js/middleware.js。初始token可在登录时从服务端获取，通过store.commit('API_TOKEN', apiToken)存储至vuex的app.apiToken状态中</div>
+				<div class="code-title">axios配置：</div>
 				<div class="md">
-					<pre><code>// 添加一个请求拦截器
+					<pre v-highlightjs><code class="javascript">// middleware.js
+export const SetAxiosConfig = function(router, store) {
+	Vue.prototype.$http = axios;
+	let _prefix = '';
+
+	if(process.env.NODE_ENV == 'production') {
+		_prefix = `${process.env.HOST}/api`
+	} else {
+		_prefix = '/api'
+	}
+
+	axios.defaults.baseURL = _prefix;
+
+	// 请求拦截，在请求头部加入token
 	axios.interceptors.request.use(
 		function(config) {
-			// 判断localStorage中是否存在api_token
 			let apiToken = '';
 			try {
-				let token = store.state.app.apiToken; //检测app模块状态栏是否有token
+				// .app.apiToken状态值配置于vuex/modules/app
+				let token = store.state.app.apiToken; 
 				if(token) {
 					apiToken = token;
 				} else if(getLocalStorage('api_token')) {
-					apiToken = getLocalStorage('api_token'); // 从本地缓存中获取token，若无则为空
-					store.commit('API_TOKEN', apiToken); //发送推送，将此token添加到状态值中
+					apiToken = getLocalStorage('api_token');
+					store.commit('API_TOKEN', apiToken);
 				}
-			} catch(e) {}
+			} catch(e) {
+				throw new Error(e.toString());
+			}
 			if(apiToken) {
-				config.headers['API-TOKEN'] = `${apiToken}`; //  存在将api_token写入 request header
+				//  存在将api_token写入请求头部"API-TOKEN"中，该值可根据前后端协商制定
+				config.headers['API-TOKEN'] = `${apiToken}`; 
 			}
 			return config;
 		},
 		function(error) {
 			return Promise.reject(error);
 		}
-	);</code></pre>
+	);
+
+	// 接收请求拦截
+	axios.interceptors.response.use(function(response) {
+		return response;
+	}, function(error) {
+		if(error.response) {
+			switch(error.response.status) {
+				case 404:
+					break;
+				default:
+					return Promise.reject(error.response.data)
+					break;
+			}
+		}
+	});
+}
+
+// main.js
+import {SetAxiosConfig} from '@/assets/js/middleware';
+import router from './router';
+import store from './vuex/store';
+
+SetAxiosConfig(router, store);</code></pre>
 				</div>
 
 				<div class="md">
-					<pre><code>/**
- * router 路由
- * store 状态管理
- * */
+					<pre v-highlightjs><code class="javascript">// 路由访问拦截，验证token
 export const SetRouterTransition = function(router, store) {
-	/* 页面跳转前 */
+	// 页面跳转前 
 	router.beforeEach((to, from, next) => {
+		// meta.needToken为路由中配置的项，决定该页面是否需要验证
 		if(to.meta.needToken) {
 			if(store.state.app.apiToken || getLocalStorage('api_token')) {
 				next();
 			} else {
-				// 若无token值直接返回登录页
+				// 若无token值直接返回首页
 				next({
 					path: '/',
 					query: {
@@ -57,11 +94,19 @@ export const SetRouterTransition = function(router, store) {
 		}
 	});
 
-	/* 页面跳转后 */
+	// 页面跳转后
 	router.afterEach((transition) => {
-		let title = transition.meta.pageTitle;
+		let title = transition.name;
+		document.title = title;
 	});
-}</code></pre>
+}
+					
+// main.js
+import {SetRouterTransition} from '@/assets/js/middleware';
+import router from './router';
+import store from './vuex/store';
+
+SetRouterTransition(router, store);</code></pre>
 				</div>
 			</div>
 		</div>
@@ -71,11 +116,6 @@ export const SetRouterTransition = function(router, store) {
 <script>
 	export default {
 		name: 'tokencheck',
-		data() {
-			return {}
-		},
-		methods: {},
-		mounted() {}
 	}
 </script>
 
@@ -90,13 +130,8 @@ export const SetRouterTransition = function(router, store) {
 	}
 	
 	.md {
-		color: white;
-		background-color: black;
-		padding: 10px;
 		margin-top: 10px;
-		border-radius: 3px;
 		font-size: 16px;
-		width: 1000px;
 	}
 	
 	.bground {

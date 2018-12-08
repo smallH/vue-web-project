@@ -4,8 +4,8 @@
 			<div class="title">vuex应用</div>
 			<div class="line"></div>
 			<div class="content">
-				<div>Vuex应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的状态 (state)。在实际应用中，vuex主要有两个作用：1.存储状态值，即set/get。2.实现异步请求，如对服务端数据的请求脚本可封装在vuex中。在本框架根目录vuex文件夹中，已配置了一个vuex应用。</div>
-				<div class="code-title">存储状态值Demo：</div>
+				<div>vuex是一套mvc机制，store负责管理应用中的状态(state)与事件(action)。在实际开发中，vuex常用的两个功能有：1. 状态存储，如设置状态set、获取状态get。2. 实现逻辑，如数据请求的操作可封装在vuex中。</div>
+				<div class="code-title">状态管理：</div>
 				<div class="param">
 					<div class="param-input">
 						<input type="text" v-model="setInput" />
@@ -16,39 +16,38 @@
 					</div>
 					<div class="param-btn" @click="getState">获取</div>
 				</div>
-				<div class="code-title">核心代码：</div>
+				<div class="code-title"></div>
 				<div class="md">
-					<pre><code>//存储状态
-	this.$store.commit("DATA", this.setInput);
+					<pre v-highlightjs><code class="javascript">// DATA动作在vuex中定义
+	//存储状态
+	this.$store.commit("DATA", this.state.data);
 	
 	//获取状态
-	this.getInput = this.$store.getters.getData;</code></pre>
+	this.state.data = this.$store.getters.getData;</code></pre>
 				</div>
-				<div class="code-title top">异步请求服务Demo：</div>
+				<!--<div class="code-title top">异步请求服务Demo：</div>
 				<div class="param">
 					<div class="param-input">
 						<input class="readonly" type="text" v-model="axiosInput" readonly/>
 					</div>
 					<div class="param-btn" @click="axiosReq">请求</div>
-				</div>
-				<div class="code-title">核心代码：</div>
+				</div>-->
+				<div class="code-title">事件驱动：</div>
 				<div class="md">
-					<pre><code>// 通过vuex异步请求接口(需要启动json-server模拟数据)
+					<pre v-highlightjs><code class="javascript">// 事件触发
 	let param = {};
-	this.$store.dispatch("getJson", param).then((data) => {
-		this.axiosInput = (data);
+	this.$store.dispatch("getJson", param).then((json) => {
+		console.log(json);
 	}, (error) => {
 		console.log(error);
 	});</code></pre>
 				</div>
-
 				<div class="md">
-					<pre><code>// vuex内的接口封装
+					<pre v-highlightjs><code class="javascript">// 事件处理root/vuex/action
+	// 其中http为已封装的网络请求模块
 	import { _get, _post, _delete, _put } from "@/assets/js/http";
 
 	let _prefix = ``; // 请求前缀
-	
-	//异步请求json-server模拟的json数据包
 	export const getJson = ({
 		commit
 	}, query) => {
@@ -82,7 +81,6 @@
 		},
 		methods: {
 			setState: function() {
-				debugger;
 				// 存储状态
 				this.$store.commit("DATA", this.setInput);
 			},
@@ -115,13 +113,8 @@
 	}
 	
 	.md {
-		color: white;
-		background-color: black;
-		padding: 10px;
 		margin-top: 10px;
-		border-radius: 3px;
 		font-size: 16px;
-		width: 1000px;
 	}
 	
 	.bground {

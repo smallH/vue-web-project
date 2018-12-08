@@ -1,8 +1,11 @@
-<!-- vue文件基本结构 -->
 <template>
 	<div id="login">
-		<div class="title">欢迎使用 vue-web-project 框架 ！</div>
-		<div class="btn" @click="enterBtn">起步</div>
+		<div class="title">欢迎使用 vue-web-project 前端框架</div>
+		<div class="nav">
+			<div class="btn" @click="enter">起步</div>
+			<div class="btn github" @click="github">GITHUB</div>
+		</div>
+
 	</div>
 </template>
 
@@ -14,7 +17,7 @@
 		name: 'login',
 		// 方法
 		methods: {
-			enterBtn() {
+			enter() {
 				setLocalStorage("api_token", "api&token&value");
 				this.$router.push({
 					path: '/core',
@@ -23,6 +26,9 @@
 						pw: "123456"
 					}
 				})
+			},
+			github() {
+				window.open("https://github.com/smallH/vue-web-project");
 			}
 		},
 		// 入参
@@ -56,28 +62,15 @@
 		data() {
 			return {};
 		},
-		// 创建后
-		created() {
-			console.log('1.created：实例创建完成，但Dom还不存在');
-			this.$nextTick(function() {
-				console.log('4.$nextTick：在修改数据之后立即使用$nextTick，可获取更新后的真实Dom');
-			});
-		},
-		// 挂载前
-		beforeMount() {
-			console.log('2.beforeMount：虚拟Dom创建完成，但未挂载到页面上');
-		},
-		// 挂载后
-		mounted() {
-			console.log('3.mounted：挂载到真实Dom上，并数据渲染完成');
-		},
-		// 组件引入
+		// 挂载成功
+		mounted() {},
+		// 组件
 		components: {},
-		// 过滤器
+		// 过滤
 		filters: {},
-		// 变量监察
+		// 状态监听
 		watch: {},
-		// 计算
+		// 计算方法
 		computed: {}
 	}
 </script>
@@ -90,15 +83,30 @@
 		margin-top: 200px;
 	}
 	
+	.nav {
+		display: flex;
+		margin-top: 50px;
+		justify-content: center;
+		align-items: center;
+	}
+	
 	.btn {
+		min-width: 140px;
+		text-align: center;
+		font-size: 24px;
 		cursor: pointer;
-		border-radius: 5px;
+		border-radius: 30px;
 		background-color: #009688;
 		color: white;
 		width: fit-content;
-		padding: 20px;
-		margin: 0 auto;
+		padding: 10px;
 		margin-top: 0px;
-		margin-top: 50px;
+	}
+	
+	.github {
+		margin-left: 20px;
+		color: gray;
+		background-color: transparent;
+		border: solid 1px #009688;
 	}
 </style>
