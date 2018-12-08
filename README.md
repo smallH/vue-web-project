@@ -1,4 +1,4 @@
-# vue-web-project 前端框架官网
+# vue-web-project 前端框架
 ##介绍
 vue-web-project 是一套在vue脚骨架的基础上，经过商业项目实践并提炼出来的用于快速构建用户界面的渐进式框架。 vue-web-project 抽象出了大部分vue前端项目的共通功能模块，并且将它们封装起来组成了本框架。本框架并不会 影响到你对其它的功能扩展或对部分模块的缩减，因为它是渐进式的。框架中封装有如下几个功能：
 - 统一了市面上各类浏览器默认样式的差异
@@ -14,10 +14,6 @@ vue-web-project 是一套在vue脚骨架的基础上，经过商业项目实践�
 - 打包后支持路由异步懒加载
 - 支持调用json-server模拟数据来源，实现前端接口自测
 
-##下载
-```javascript
-https://github.com/smallH/vue-web-project
-```
 ##官网
 ```javascript
 http://www.helloui.net
