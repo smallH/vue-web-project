@@ -1,6 +1,4 @@
-/**
- * 存储localStorage
- */
+// 存储localStorage
 export const setLocalStorage = (name, content) => {
 	if(!name) return;
 	if(typeof content !== 'string') {
@@ -9,9 +7,7 @@ export const setLocalStorage = (name, content) => {
 	window.localStorage.setItem(name, content);
 };
 
-/**
- * 获取localStorage
- */
+// 获取localStorage
 export const getLocalStorage = name => {
 	if(!name) return;
 	try {
@@ -26,17 +22,13 @@ export const getLocalStorage = name => {
 	}
 };
 
-/**
- * 删除localStorage
- */
+// 删除localStorage
 export const removeLocalStorage = name => {
 	if(!name) return;
 	window.localStorage.removeItem(name);
 };
 
-/**
- * 获取字符串长度
- */
+// 获取字符串长度
 export const strlen = (str) => {
 	var len = 0;
 	for(var i = 0; i < str.length; i++) {

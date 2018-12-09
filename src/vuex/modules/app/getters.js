@@ -1,3 +1,3 @@
 export const getLoading = state => state.loading
 export const getData = state => state.data
-export const getAPIToken = state => state.apiToken
+export const getToken = state => state.token

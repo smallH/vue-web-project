@@ -32,22 +32,23 @@ export const SetAxiosConfig = function(router, store) {
 	// 请求拦截，在请求头部加入token
 	axios.interceptors.request.use(
 		function(config) {
-			let apiToken = '';
+			let token = '';
 			try {
-				// .app.apiToken状态值配置于vuex/modules/app
-				let token = store.state.app.apiToken;
+				let token = store.state.app.token;
 				if(token) {
-					apiToken = token;
-				} else if(getLocalStorage('api_token')) {
-					apiToken = getLocalStorage('api_token');
-					store.commit('API_TOKEN', apiToken);
+					token = token;
+				} else if(getLocalStorage('token')) {
+					token = getLocalStorage('token');
+					store.commit('TOKEN', token);
+				} else {
+					throw new Error("没有token值");
 				}
 			} catch(e) {
-				throw new Error(e.toString());
+				return Promise.reject(error);
 			}
-			if(apiToken) {
-				//  存在将api_token写入请求头部"API-TOKEN"中，该值可根据前后端协商制定
-				config.headers['API-TOKEN'] = `${apiToken}`;
+			if(token) {
+				// 存在将token写入请求头部"TOKEN"
+				config.headers['TOKEN'] = `${token}`;
 			}
 			return config;
 		},
@@ -62,7 +63,11 @@ export const SetAxiosConfig = function(router, store) {
 	}, function(error) {
 		if(error.response) {
 			switch(error.response.status) {
-				case 404:
+				case 411:
+					// 返回错误码411信息
+					break;
+				case 412:
+					// 返回错误码412信息
 					break;
 				default:
 					return Promise.reject(error.response.data)
@@ -74,27 +79,21 @@ export const SetAxiosConfig = function(router, store) {
 
 // 路由访问拦截，验证token
 export const SetRouterTransition = function(router, store) {
-	// 页面跳转前 
+	/* router before */
 	router.beforeEach((to, from, next) => {
-		// meta.needToken为路由中配置的项，决定该页面是否需要验证
-		if(to.meta.needToken) {
-			if(store.state.app.apiToken || getLocalStorage('api_token')) {
+		// check this router need auth
+		if(to.meta.requireAuth) {
+			if(store.state.app.token || getLocalStorage('api_token')) {
 				next();
 			} else {
-				// 若无token值直接返回首页
-				next({
-					path: '/',
-					query: {
-						redirect: to.fullPath
-					}
-				})
+				next({path: '/', query: {redirect: to.fullPath}})
 			}
 		} else {
 			next();
 		}
 	});
 
-	// 页面跳转后
+	/* router after */
 	router.afterEach((transition) => {
 		let title = transition.name;
 		document.title = title;

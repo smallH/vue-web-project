@@ -1,6 +1,4 @@
-/**
- * 模拟JSON数据
- * */
+// 模拟JSON数据
 let Mock = require('mockjs');
 let Random = Mock.Random;
 

@@ -1,6 +1,5 @@
 const state = {
-	apiToken:"",
-	loading: false,
+	token: "",
 	data: {}
 }
 export default state
