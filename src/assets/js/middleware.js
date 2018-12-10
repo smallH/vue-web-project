@@ -16,7 +16,7 @@ export const SetFilter = function() {
 	});
 }
 
-// 设置Axios配置
+// Axios配置，网络请求时验证token
 export const SetAxiosConfig = function(router, store) {
 	Vue.prototype.$http = axios;
 	let _prefix = '';
@@ -29,22 +29,16 @@ export const SetAxiosConfig = function(router, store) {
 
 	axios.defaults.baseURL = _prefix;
 
-	// 请求拦截，在请求头部加入token
+	// 请求拦截，在头部加入token
 	axios.interceptors.request.use(
 		function(config) {
 			let token = '';
-			try {
-				let token = store.state.app.token;
-				if(token) {
-					token = token;
-				} else if(getLocalStorage('token')) {
-					token = getLocalStorage('token');
-					store.commit('TOKEN', token);
-				} else {
-					throw new Error("没有token值");
-				}
-			} catch(e) {
-				return Promise.reject(error);
+			token = store.state.app.token;
+			if(token) {
+				token = token;
+			} else if(getLocalStorage('token')) {
+				token = getLocalStorage('token');
+				store.commit('TOKEN', token);
 			}
 			if(token) {
 				// 存在将token写入请求头部"TOKEN"
@@ -57,17 +51,19 @@ export const SetAxiosConfig = function(router, store) {
 		}
 	);
 
-	// 接收请求拦截
+	// 请求结果
 	axios.interceptors.response.use(function(response) {
 		return response;
 	}, function(error) {
 		if(error.response) {
-			switch(error.response.status) {
+			switch(error.response.state) {
 				case 411:
-					// 返回错误码411信息
+					// 如411错误为没有token值
+					// 返回处理状态和信息的Promise对象
 					break;
 				case 412:
-					// 返回错误码412信息
+					// 如412错误为入参不正确
+					// 返回处理状态和信息的Promise对象
 					break;
 				default:
 					return Promise.reject(error.response.data)
@@ -77,7 +73,7 @@ export const SetAxiosConfig = function(router, store) {
 	});
 }
 
-// 路由访问拦截，验证token
+// Router跳转页面时，验证token
 export const SetRouterTransition = function(router, store) {
 	/* router before */
 	router.beforeEach((to, from, next) => {
@@ -86,7 +82,12 @@ export const SetRouterTransition = function(router, store) {
 			if(store.state.app.token || getLocalStorage('api_token')) {
 				next();
 			} else {
-				next({path: '/', query: {redirect: to.fullPath}})
+				next({
+					path: '/',
+					query: {
+						redirect: to.fullPath
+					}
+				})
 			}
 		} else {
 			next();

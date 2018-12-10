@@ -13,3 +13,8 @@ vue-web-project 是一套在vue脚骨架的基础上，经过商业项目实践�
 - 支持stylus样式写法
 - 打包后支持路由异步懒加载
 - 支持调用json-server模拟数据来源，实现前端接口自测
+
+##文档
+```javascript
+http://www.helloui.net
+```
