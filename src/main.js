@@ -7,10 +7,14 @@ import { SetMomentConfig, SetAxiosConfig, SetRouterTransition, SetFilter } from 
 import VueBus from '@/assets/js/vue-bus';
 import '@/assets/fonts/iconfont.styl'
 import '@/assets/css/base.styl'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
 /* 中央事件总线插件 */
 Vue.use(VueBus);
+/* ElementUI组件库 */
+Vue.use(ElementUI);
 /* 中间件配置 */
 SetMomentConfig();
 SetFilter();
