@@ -18,7 +18,7 @@ export const SetFilter = function() {
 
 // Axios配置，网络请求时验证token
 export const SetAxiosConfig = function(router, store) {
-	Vue.prototype.$http = axios;
+	Vue.prototype.$axios = axios;
 	let _prefix = '';
 
 	if(process.env.NODE_ENV == 'production') {
@@ -32,17 +32,17 @@ export const SetAxiosConfig = function(router, store) {
 	// 请求拦截，在头部加入token
 	axios.interceptors.request.use(
 		function(config) {
-			let token = '';
-			token = store.state.app.token;
+			let headertoken = '';
+			let token = store.state.app.token;
 			if(token) {
-				token = token;
+				headertoken = token;
 			} else if(getLocalStorage('token')) {
-				token = getLocalStorage('token');
-				store.commit('TOKEN', token);
+				headertoken = getLocalStorage('token');
+				store.commit('TOKEN', headertoken);
 			}
-			if(token) {
+			if(headertoken) {
 				// 存在将token写入请求头部"TOKEN"
-				config.headers['TOKEN'] = `${token}`;
+				config.headers['TOKEN'] = `${headertoken}`;
 			}
 			return config;
 		},

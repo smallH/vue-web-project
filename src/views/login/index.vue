@@ -21,7 +21,14 @@
 		data() {
 			return {};
 		},
-		mounted() {},
+		mounted() {
+			//			let param = {};
+			//			this.$store.dispatch("getJson", param).then((json) => {
+			//				console.log(json);
+			//			}, (error) => {
+			//				console.log(error);
+			//			});
+		},
 		components: {},
 		filters: {},
 		watch: {},
