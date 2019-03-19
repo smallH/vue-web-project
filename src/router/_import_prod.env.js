@@ -6,6 +6,6 @@ export function routerAsynFunc(file) {
 const routerAsyn = {
 	'login/index': r => require.ensure([], () => r(require(`../views/login/index`)), `login/index`),
 	'core/index': r => require.ensure([], () => r(require(`../views/core/index`)), `core/index`),
-	'pages/page1': r => require.ensure([], () => r(require(`../views/pages/page1/index`)), `pages/page1/index`),
-	'pages/page2': r => require.ensure([], () => r(require(`../views/pages/page2/index`)), `pages/page2/index`),
+	'pages/page1/index': r => require.ensure([], () => r(require(`../views/pages/page1/index`)), `pages/page1/index`),
+	'pages/page2/index': r => require.ensure([], () => r(require(`../views/pages/page2/index`)), `pages/page2/index`),
 };
