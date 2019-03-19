@@ -16,5 +16,35 @@ export default new VueRouter({
 		meta: {
 			requireAuth: false
 		}
+	},{
+		path: '/core',
+		component: _import('core/index'),
+		meta: {
+			requireAuth: false
+		},
+		children: [{
+				path: '/',
+				name: 'page1',
+				component: _import('pages/page1'),
+				meta: {
+					requireAuth: true
+				}
+			},{
+				path: '/pages/page1',
+				name: 'page1',
+				component: _import('pages/page1'),
+				meta: {
+					requireAuth: true
+				}
+			},
+			{
+				path: '/pages/page2',
+				name: 'page2',
+				component: _import('pages/page2'),
+				meta: {
+					requireAuth: true
+				}
+			}
+		]
 	}]
 })
