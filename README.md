@@ -16,5 +16,5 @@
 
 ## 文档
 ```javascript
-http://www.helloui.net
+http://www.deepui.net
 ```
