@@ -78,7 +78,6 @@ export const SetRouterTransition = function(router, store) {
 	/* router before */
 	router.beforeEach((to, from, next) => {
 		// check this router need auth
-		debugger;
 		if(to.meta.requireAuth) {
 			if(store.state.app.token || getLocalStorage('api_token')) {
 				next();
