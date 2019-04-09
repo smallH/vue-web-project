@@ -26,8 +26,11 @@ export const SetAxiosConfig = function(router, store) {
 	} else {
 		_prefix = '/api'
 	}
-
+	
+	// axios详细配置信息 https://www.jianshu.com/p/1aaeb1e98090
 	axios.defaults.baseURL = _prefix;
+	//	axios.defaults.crossDomain = true; // 当使用CORS解决跨域时，需要把crossDomain设为true
+	//	axios.defaults.withCredentials = true;  //设置cross跨域 并设置访问权限 允许跨域携带cookie信息
 
 	// 请求拦截，在头部加入token
 	axios.interceptors.request.use(
